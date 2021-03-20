@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-bool isDark = true;
+bool isDark = false;
 Color darkMode() {
   if (isDark) {
     return Color(0xFF363940);

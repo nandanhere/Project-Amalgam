@@ -114,12 +114,24 @@ class _ModalPageState extends State<ModalPage> {
         .collection('projects')
         .doc(widget.projectId)
         .update({"tasks": taskList});
+    for (int i = 0; i < uidList.length; i++) {
+      var doc = await FirebaseFirestore.instance
+          .collection("users")
+          .doc(uidList[i].keys.first)
+          .get();
+      int points1 = doc["balance"], points2 = doc["pointsEarnedInTotal"];
+      points1 += points;
+      points2 += points;
+      await FirebaseFirestore.instance
+          .collection("users")
+          .doc(uidList[i].keys.first)
+          .set({"balance": points1, "pointsEarnedInTotal": points2});
+    }
     print('done');
   }
 
   @override
   void initState() {
-    // TODO: implement initState
     userListRetriever().then((value) {
       memberMaker();
     });

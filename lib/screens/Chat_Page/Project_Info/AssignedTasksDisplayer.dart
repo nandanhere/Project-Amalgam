@@ -300,6 +300,29 @@ class StatusButton extends StatelessWidget {
       }
     }
     arr[i][uids[i]] = value;
+    if (value == 5) {
+      arr.removeAt(i);
+      var dc1 = await FirebaseFirestore.instance
+          .collection("projects")
+          .doc(projectId)
+          .collection("tasks")
+          .doc(task.taskId)
+          .get();
+      int points = dc1["points"];
+      print(points);
+      var doc = await FirebaseFirestore.instance
+          .collection("users")
+          .doc(uids[i])
+          .get();
+      int points1 = doc["balance"], points2 = doc["pointsEarnedInTotal"];
+      print(points1);
+      points1 += points;
+      points2 += points;
+      await FirebaseFirestore.instance
+          .collection("users")
+          .doc(uids[i])
+          .update({"balance": points1, "pointsEarnedInTotal": points2});
+    }
     await FirebaseFirestore.instance
         .collection("projects")
         .doc(projectId)
