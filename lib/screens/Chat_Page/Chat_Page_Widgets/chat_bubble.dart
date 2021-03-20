@@ -6,8 +6,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-import '../../../globals.dart';
-
 class ChatBubble extends StatelessWidget {
   final bool isContinuous;
   final Map<String, String> cacheMap;
@@ -35,7 +33,6 @@ class ChatBubble extends StatelessWidget {
           );
         }
         if (snap.data['userName'] == 'Amalgam Team') {
-          print('object');
           return CircleAvatar(
               backgroundImage: AssetImage('assets/amalgam_logo.png'));
         }
@@ -144,8 +141,7 @@ class ChatBubble extends StatelessWidget {
                                 child: Text(
                                   messageText,
                                   style: GoogleFonts.lato(
-                                      fontWeight: FontWeight.w400,
-                                      color: textColor()),
+                                      fontWeight: FontWeight.w400),
                                 ),
                               ),
                             ],

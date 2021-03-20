@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:project_amalgam/Common_widgets/CustomCircularProgressIndicator.dart';
-import 'package:project_amalgam/screens/Modal_Page/ModalPage.dart';
+ import 'package:project_amalgam/screens/Chat_Page/ProjectInfoScreen.dart';
 import 'package:project_amalgam/screens/Shared_Button_Screen/SharedButtonScreen.dart';
-
-import '../../globals.dart';
-import 'Chat_Page_Widgets/messages.dart';
-import 'Chat_Page_Widgets/new_message.dart';
+ import 'package:project_amalgam/screens/Modal_Page/ModalPage.dart';
+ import '../../globals.dart';
+import 'chat_page_widgets/messages.dart';
+import 'chat_page_widgets/new_message.dart';
 
 class ChatScreen extends StatefulWidget {
   static const routeName = '/Chat';
@@ -30,8 +30,6 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
   Future<void> getProjectDetails() async {
-    print(userIdGlobal);
-    print(projectId);
     final DocumentSnapshot data = await FirebaseFirestore.instance
         .collection('projects')
         .doc(projectId)
@@ -56,7 +54,7 @@ class _ChatScreenState extends State<ChatScreen> {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Scaffold(
-              backgroundColor: darkMode(),
+              backgroundColor: Color(0xFFE0E0E0),
               body: Center(
                 child: CustomProgressIndicator(),
               ),
@@ -64,13 +62,14 @@ class _ChatScreenState extends State<ChatScreen> {
           }
           final snapdata = snapshot.data;
           print(snapdata['isAdmin']);
+          List<String> tasks = List.castFrom(snapdata['tasks']);
           isAdmin = snapdata['isAdmin'];
 
           return Scaffold(
-            backgroundColor: darkMode(),
+            backgroundColor: Color(0xFFE0E0E0),
             appBar: AppBar(
               centerTitle: true,
-              iconTheme: IconThemeData(color: textColor()),
+              iconTheme: IconThemeData(color: Colors.black87),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(20),
@@ -83,7 +82,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     alignment: Alignment.centerRight,
                     iconSize: 32,
                     splashRadius: 25,
-                    icon: Icon(Icons.add_circle_outline, color: textColor()),
+                    icon: Icon(Icons.add_circle_outline, color: Colors.black87),
                     onPressed: () {
                       showDialog(
                         context: context,
@@ -97,22 +96,9 @@ class _ChatScreenState extends State<ChatScreen> {
                   ),
                 PopupMenuButton(
                     onSelected: (value) {
-                      if (value == "SharedButton") {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SharedButtonScreen(
-                              projectId: projectId,
-                              projectTitle: projectName,
-                            ),
-                          ),
-                        );
-                      }
+                      if (value == "SharedButton") {}
                     },
-                    icon: Icon(
-                      Icons.more_vert,
-                      color: textColor(),
-                    ),
+                    icon: Icon(Icons.more_vert),
                     itemBuilder: (context) {
                       return [
                         PopupMenuItem(
@@ -130,23 +116,94 @@ class _ChatScreenState extends State<ChatScreen> {
                       ];
                     }),
               ],
-              backgroundColor: darkMode(),
+              backgroundColor: Color(0xFFE0E0E0),
               title: InkWell(
-                onTap: () {},
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProjectInfoScreen(
+                      isAdmin: isAdmin,
+                      projectId: projectId,
+                    ),
+                  ),
+                ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       projectName,
-                      style: TextStyle(color: textColor()),
+                      style: TextStyle(color: Colors.black),
                     ),
+                    //TODO make a setting where if only one task is there it will show the title of the task
+                    if (!isAdmin)
+                      Text(
+                          (tasks.length == 0)
+                              ? "No tasks have been assigned"
+                              : (tasks.length == 1)
+                                  ? tasks.first
+                                  : 'You have been assigned ${tasks.length} task/s ',
+                          style: TextStyle(color: Colors.black54, fontSize: 14))
                   ],
                 ),
               ),
+              actions: [
+                if (snapshot.data['isAdmin'])
+                  IconButton(
+                    alignment: Alignment.centerRight,
+                    iconSize: 32,
+                    splashRadius: 25,
+                    icon: Icon(Icons.add_circle_outline, color: Colors.black87),
+                    onPressed: () {},
+                  ),
+                PopupMenuButton(
+                    onSelected: (value) {
+                      if (value == "Logout") {
+                      } else if (value == "SharedButton") {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SharedButtonScreen(
+                              projectId: projectId,
+                              projectTitle: projectName,
+                            ),
+                          ),
+                        );
+                      }
+                    },
+                    icon: Icon(Icons.more_vert),
+                    itemBuilder: (context) {
+                      return [
+                        PopupMenuItem(
+                          value: 'Logout',
+                          child: Container(
+                            child: Row(
+                              children: [
+                                Icon(Icons.exit_to_app),
+                                SizedBox(width: 10),
+                                Text("Logout")
+                              ],
+                            ),
+                          ),
+                        ),
+                        PopupMenuItem(
+                          value: 'SharedButton',
+                          child: Container(
+                            child: Row(
+                              children: [
+                                Icon(Icons.phone_in_talk),
+                                SizedBox(width: 10),
+                                Text("FreeSpeak")
+                              ],
+                            ),
+                          ),
+                        ),
+                      ];
+                    }),
+              ],
             ),
             body: Center(
               child: Container(
-                color: darkMode(),
+                color: Color(0xFFE0E0E0),
                 child: Column(
                   children: [
                     Expanded(

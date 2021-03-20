@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-
+ import 'dart:ui';
+ 
 class ProjectDetails {
   String title;
   String id;
