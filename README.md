@@ -42,6 +42,9 @@ Note : The screenshots displayed in the above section are from Web, hence image 
 
 <img src="https://github.com/TheNova22/Project-Amalgam/blob/working/assets/screenshots/WhatsApp%20Image%202021-03-20%20at%2010.45.11%20PM.jpeg" width="250" height="400">  <img src="https://github.com/TheNova22/Project-Amalgam/blob/working/assets/screenshots/WhatsApp%20Image%202021-03-20%20at%2010.43.41%20PM.jpeg" width="250" height="400">
 
+* Added a special feature called FreeSpeak that helps a team in engaging in contention free conversion or presentation.
+
+<img src="https://github.com/TheNova22/Project-Amalgam/blob/working/assets/screenshots/WhatsApp%20Image%202021-03-20%20at%2010.57.41%20PM.jpeg" width="250" height="400">
 
 <sup> * </sup> as of now
 
