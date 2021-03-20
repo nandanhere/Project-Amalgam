@@ -54,19 +54,32 @@ class ProfileCard extends StatelessWidget {
       height: height / 3.5 < 250 ? height / 3.5 : 250,
       width: width / 1.5,
       decoration: BoxDecoration(
-          color: Color(0xFFC6C0EC),
-          boxShadow: [
-            BoxShadow(
-              color: Color(0xFFE2DEFF).withOpacity(0.5),
-              offset: Offset(-3.0, -3.0),
-              blurRadius: 3.0,
-            ),
-            BoxShadow(
-              color: Color(0xFF858396).withOpacity(0.2),
-              offset: Offset(3.0, 3.0),
-              blurRadius: 3.0,
-            ),
-          ],
+          color: isDark ? Color(0xFF78758a) : Color(0xFFC6C0EC),
+          boxShadow: isDark
+              ? [
+                  BoxShadow(
+                    color: Color(0xFFE2DEFF).withOpacity(0.1),
+                    offset: Offset(3.0, 3.0),
+                    blurRadius: 3.0,
+                  ),
+                  BoxShadow(
+                    color: Color(0xFF858396).withOpacity(0.3),
+                    offset: Offset(-3.0, -3.0),
+                    blurRadius: 3.0,
+                  ),
+                ]
+              : [
+                  BoxShadow(
+                    color: Color(0xFFE2DEFF).withOpacity(0.5),
+                    offset: Offset(-3.0, -3.0),
+                    blurRadius: 3.0,
+                  ),
+                  BoxShadow(
+                    color: Color(0xFF858396).withOpacity(0.2),
+                    offset: Offset(3.0, 3.0),
+                    blurRadius: 3.0,
+                  ),
+                ],
           borderRadius: BorderRadius.only(
               topRight: Radius.circular(20),
               topLeft: Radius.circular(100),
@@ -136,6 +149,7 @@ class ProfileCard extends StatelessWidget {
                                     : splitName.first,
                                 style: GoogleFonts.ubuntu(
                                     fontWeight: FontWeight.w400,
+                                    color: textColor(),
                                     fontSize: returner(type, 16, 18, 20))),
                           ),
                         ],
@@ -151,6 +165,7 @@ class ProfileCard extends StatelessWidget {
                             child: Text(email,
                                 style: GoogleFonts.ubuntu(
                                     fontWeight: FontWeight.w400,
+                                    color: textColor(),
                                     fontSize: returner(type, 14, 16, 18))),
                           ),
                         ],
@@ -171,6 +186,7 @@ class ProfileCard extends StatelessWidget {
                         child: Text("Amalgam | Bangalore",
                             style: GoogleFonts.ubuntu(
                                 fontWeight: FontWeight.w400,
+                                color: textColor(),
                                 fontSize: returner(type, 16, 18, 20))),
                       ),
                     ],
@@ -195,6 +211,7 @@ class ProfileCard extends StatelessWidget {
                   child: Text(" ${dataMap['pointsEarnedInTotal']} ⭐️ ",
                       style: GoogleFonts.ubuntu(
                           fontWeight: FontWeight.w400,
+                          color: textColor(),
                           fontSize: returner(type, 16, 18, 20))),
                 ),
                 alignment: Alignment.bottomLeft,
@@ -223,7 +240,7 @@ class UserRole extends StatelessWidget {
       ),
       child: Text(text,
           style: GoogleFonts.ubuntu(
-              color: Colors.black,
+              color: textColor(),
               fontWeight: FontWeight.w400,
               fontSize: returner(type, 16, 18, 20))),
     );

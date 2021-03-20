@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:project_amalgam/Common_widgets/CustomCircularProgressIndicator.dart';
 
+import '../../../globals.dart';
 import 'UserTile.dart';
 
 class UserList extends StatelessWidget {
@@ -62,7 +63,7 @@ class _UserSearchListState extends State<UserSearchList> {
                     _searchQueryController.clear();
                   },
                 )),
-            style: TextStyle(color: Colors.black54, fontSize: 16.0),
+            style: TextStyle(color: textColor(), fontSize: 16.0),
             onChanged: (query) {
               final s = query.trim().toLowerCase();
               if (s.isNotEmpty) {

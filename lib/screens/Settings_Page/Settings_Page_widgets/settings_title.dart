@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_amalgam/globals.dart';
 
 class SettingsTitle extends StatelessWidget {
   const SettingsTitle({Key key, this.title}) : super(key: key);
@@ -14,7 +15,7 @@ class SettingsTitle extends StatelessWidget {
         title,
         textAlign: TextAlign.left,
         style: TextStyle(
-            fontSize: 22, color: Colors.black87, fontWeight: FontWeight.w500),
+            fontSize: 22, color: textColor(), fontWeight: FontWeight.w500),
       ),
     );
   }

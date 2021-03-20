@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_amalgam/Common_widgets/showProjects.dart';
+import 'package:project_amalgam/globals.dart';
 
 // N
 class PublicProjectsScreen extends StatelessWidget {
@@ -9,15 +10,15 @@ class PublicProjectsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFE0E0E0),
+      backgroundColor: darkMode(),
       appBar: AppBar(
         title: Text(
           "Open Projects",
-          style: TextStyle(color: Colors.black87),
+          style: TextStyle(color: textColor()),
         ),
-        iconTheme: IconThemeData(color: Colors.black87),
+        iconTheme: IconThemeData(color: textColor()),
         centerTitle: false,
-        backgroundColor: Color(0xFFE0E0E0),
+        backgroundColor: darkMode(),
         elevation: 2,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(

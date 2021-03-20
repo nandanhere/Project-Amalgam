@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:project_amalgam/Common_widgets/CustomCircularProgressIndicator.dart';
 import 'package:project_amalgam/screens/Modal_Page/ModalPage.dart';
+import 'package:project_amalgam/screens/Shared_Button_Screen/SharedButtonScreen.dart';
 
 import '../../globals.dart';
 import 'Chat_Page_Widgets/messages.dart';
@@ -55,7 +56,7 @@ class _ChatScreenState extends State<ChatScreen> {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Scaffold(
-              backgroundColor: Color(0xFFE0E0E0),
+              backgroundColor: darkMode(),
               body: Center(
                 child: CustomProgressIndicator(),
               ),
@@ -66,10 +67,10 @@ class _ChatScreenState extends State<ChatScreen> {
           isAdmin = snapdata['isAdmin'];
 
           return Scaffold(
-            backgroundColor: Color(0xFFE0E0E0),
+            backgroundColor: darkMode(),
             appBar: AppBar(
               centerTitle: true,
-              iconTheme: IconThemeData(color: Colors.black87),
+              iconTheme: IconThemeData(color: textColor()),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(20),
@@ -82,7 +83,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     alignment: Alignment.centerRight,
                     iconSize: 32,
                     splashRadius: 25,
-                    icon: Icon(Icons.add_circle_outline, color: Colors.black87),
+                    icon: Icon(Icons.add_circle_outline, color: textColor()),
                     onPressed: () {
                       showDialog(
                         context: context,
@@ -96,9 +97,22 @@ class _ChatScreenState extends State<ChatScreen> {
                   ),
                 PopupMenuButton(
                     onSelected: (value) {
-                      if (value == "SharedButton") {}
+                      if (value == "SharedButton") {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SharedButtonScreen(
+                              projectId: projectId,
+                              projectTitle: projectName,
+                            ),
+                          ),
+                        );
+                      }
                     },
-                    icon: Icon(Icons.more_vert),
+                    icon: Icon(
+                      Icons.more_vert,
+                      color: textColor(),
+                    ),
                     itemBuilder: (context) {
                       return [
                         PopupMenuItem(
@@ -116,7 +130,7 @@ class _ChatScreenState extends State<ChatScreen> {
                       ];
                     }),
               ],
-              backgroundColor: Color(0xFFE0E0E0),
+              backgroundColor: darkMode(),
               title: InkWell(
                 onTap: () {},
                 child: Column(
@@ -124,7 +138,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   children: [
                     Text(
                       projectName,
-                      style: TextStyle(color: Colors.black),
+                      style: TextStyle(color: textColor()),
                     ),
                   ],
                 ),
@@ -132,7 +146,7 @@ class _ChatScreenState extends State<ChatScreen> {
             ),
             body: Center(
               child: Container(
-                color: Color(0xFFE0E0E0),
+                color: darkMode(),
                 child: Column(
                   children: [
                     Expanded(

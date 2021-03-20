@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_amalgam/Providers/UsersSelectedProvider.dart';
 import 'package:provider/provider.dart';
+import '../../globals.dart';
 import 'Select_Members_Screen_Widgets/UserList.dart';
 import 'finaliseProject.dart';
 
@@ -17,10 +18,10 @@ class SelectMembersScreen extends StatelessWidget {
       child: UserList(),
       builder: (context, child) {
         return Scaffold(
-          backgroundColor: Color(0xFFE0E0E0),
+          backgroundColor: darkMode(),
           appBar: AppBar(
-            iconTheme: IconThemeData(color: Colors.black87),
-            backgroundColor: Color(0xFFE0E0E0),
+            iconTheme: IconThemeData(color: textColor()),
+            backgroundColor: darkMode(),
             elevation: 2,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
@@ -31,20 +32,20 @@ class SelectMembersScreen extends StatelessWidget {
                 FittedBox(
                   child: Text(
                     "Select members",
-                    style: TextStyle(color: Colors.black87),
+                    style: TextStyle(color: textColor()),
                   ),
                 ),
                 FittedBox(
                   child: Text(
                     "${Provider.of<UsersSelected>(context).count} out of 10 selected ",
-                    style: TextStyle(fontSize: 12, color: Colors.black87),
+                    style: TextStyle(fontSize: 12, color: textColor()),
                   ),
                 )
               ],
             ),
             actions: [
               IconButton(
-                  icon: Icon(Icons.arrow_forward, color: Colors.black87),
+                  icon: Icon(Icons.arrow_forward, color: textColor()),
                   onPressed: () {
                     final list =
                         Provider.of<UsersSelected>(context, listen: false)

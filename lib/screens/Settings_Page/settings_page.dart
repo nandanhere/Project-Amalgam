@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:project_amalgam/globals.dart';
 
 import 'Settings_Page_widgets/settings_button.dart';
 import 'Settings_Page_widgets/settings_title.dart';
@@ -10,15 +11,15 @@ class SettingsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: Color(0xFFE0E0E0),
+      backgroundColor: darkMode(),
       appBar: AppBar(
         title: Text(
           "Settings",
           style: TextStyle(color: Colors.black87),
         ),
-        iconTheme: IconThemeData(color: Colors.black87),
+        iconTheme: IconThemeData(color: textColor()),
         // centerTitle: true,
-        backgroundColor: Color(0xFFE0E0E0),
+        backgroundColor: darkMode(),
         elevation: 2,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
@@ -32,12 +33,12 @@ class SettingsPage extends StatelessWidget {
             SettingsButton(
               title: "Edit Details",
               onTap: () {},
-              leading: Icon(Icons.keyboard_arrow_right, color: Colors.black87),
+              leading: Icon(Icons.keyboard_arrow_right, color: textColor()),
             ),
             SettingsButton(
               title: "Change Password",
               onTap: () {},
-              leading: Icon(Icons.lock_outline, color: Colors.black87),
+              leading: Icon(Icons.lock_outline, color: textColor()),
             ),
             SettingsButton(
               title: "Log Out",
@@ -68,7 +69,7 @@ class SettingsPage extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 5.0),
                 child: Text(
                   "Medium",
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(fontSize: 18, color: textColor()),
                 ),
               ),
             ),
@@ -79,7 +80,7 @@ class SettingsPage extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 5.0),
                 child: Text(
                   "English",
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(fontSize: 18, color: textColor()),
                 ),
               ),
             ),
@@ -91,7 +92,7 @@ class SettingsPage extends StatelessWidget {
               onTap: () {},
               leading: Icon(
                 Icons.help_outline,
-                color: Colors.black87,
+                color: textColor(),
               ),
             ),
             SettingsButton(
@@ -99,7 +100,7 @@ class SettingsPage extends StatelessWidget {
               onTap: () {},
               leading: Icon(
                 Icons.mail_outline,
-                color: Colors.black87,
+                color: textColor(),
               ),
             ),
             SettingsButton(

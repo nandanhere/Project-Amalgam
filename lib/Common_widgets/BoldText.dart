@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-// N will add this in Common widgets
+import '../globals.dart';
+
 class BoldText extends StatelessWidget {
   const BoldText({Key key, this.str}) : super(key: key);
   final String str;
@@ -9,7 +10,7 @@ class BoldText extends StatelessWidget {
     return Text(
       str,
       style: TextStyle(
-          color: Colors.black87, fontSize: 22, fontWeight: FontWeight.bold),
+          color: textColor(), fontSize: 22, fontWeight: FontWeight.bold),
     );
   }
 }
