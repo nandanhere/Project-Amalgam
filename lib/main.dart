@@ -5,6 +5,9 @@ import 'package:project_amalgam/screens/Auth_Page/auth_page.dart';
 import 'package:project_amalgam/screens/Home_Page/Home_Page.dart';
 import 'package:project_amalgam/screens/Settings_Page/settings_page.dart';
 
+import 'screens/Create_Project/finaliseProject.dart';
+import 'screens/Create_Project/selectMembersScreen.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -18,6 +21,15 @@ class MyApp extends StatelessWidget {
       title: 'Amalgam',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        accentColor: Colors.grey,
+        accentColorBrightness: Brightness.dark,
+        buttonTheme: ButtonTheme.of(context).copyWith(
+          buttonColor: Colors.pink,
+          textTheme: ButtonTextTheme.primary,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+        ),
       ),
       home: StreamBuilder(
         stream: FirebaseAuth.instance.authStateChanges(),
@@ -34,6 +46,8 @@ class MyApp extends StatelessWidget {
       routes: {
         HomePage.routeName: (ctx) => HomePage(),
         SettingsPage.routeName: (ctx) => SettingsPage(),
+        SelectMembersScreen.routeName: (ctx) => SelectMembersScreen(),
+        FinaliseProjectScreen.routeName: (ctx) => FinaliseProjectScreen(),
       },
     );
     return FutureBuilder(
