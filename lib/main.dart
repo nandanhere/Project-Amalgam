@@ -43,12 +43,7 @@ class MyApp extends StatelessWidget {
             return CircularProgressIndicator();
           }
           if (snapshot.hasData) {
-            Timer(Duration(seconds: 2), () {
-              if (flag) {
-                flag = false;
-                return HomePage();
-              }
-            });
+            return HomePage();
           }
           return AuthScreen();
         },

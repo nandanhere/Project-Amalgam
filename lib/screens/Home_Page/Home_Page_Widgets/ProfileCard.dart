@@ -135,7 +135,7 @@ class ProfileCard extends StatelessWidget {
                                     : splitName.first,
                                 style: GoogleFonts.ubuntu(
                                     fontWeight: FontWeight.w400,
-                                    fontSize: returner(type, 13, 17, 19))),
+                                    fontSize: returner(type, 16, 18, 20))),
                           ),
                         ],
                       ),
@@ -150,7 +150,7 @@ class ProfileCard extends StatelessWidget {
                             child: Text(email,
                                 style: GoogleFonts.ubuntu(
                                     fontWeight: FontWeight.w400,
-                                    fontSize: returner(type, 11, 14, 16))),
+                                    fontSize: returner(type, 14, 16, 18))),
                           ),
                         ],
                       ),
@@ -170,7 +170,7 @@ class ProfileCard extends StatelessWidget {
                         child: Text("Amalgam | Bangalore",
                             style: GoogleFonts.ubuntu(
                                 fontWeight: FontWeight.w400,
-                                fontSize: returner(type, 13, 17, 19))),
+                                fontSize: returner(type, 16, 18, 20))),
                       ),
                     ],
                   ),
@@ -194,7 +194,7 @@ class ProfileCard extends StatelessWidget {
                   child: Text(" ${dataMap['pointsEarnedInTotal']} ⭐️ ",
                       style: GoogleFonts.ubuntu(
                           fontWeight: FontWeight.w400,
-                          fontSize: returner(type, 13, 18, 20))),
+                          fontSize: returner(type, 16, 18, 20))),
                 ),
                 alignment: Alignment.bottomLeft,
               )
@@ -224,7 +224,7 @@ class UserRole extends StatelessWidget {
           style: GoogleFonts.ubuntu(
               color: Colors.black,
               fontWeight: FontWeight.w400,
-              fontSize: returner(type, 13, 16, 18))),
+              fontSize: returner(type, 16, 18, 20))),
     );
   }
 }

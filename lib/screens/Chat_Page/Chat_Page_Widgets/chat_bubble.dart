@@ -26,7 +26,6 @@ class ChatBubble extends StatelessWidget {
           );
         }
         final url = snap.data['imageUrl'];
-
         cacheMap.putIfAbsent(userId, () => url);
         return url == "none"
             ? CircleAvatar(
