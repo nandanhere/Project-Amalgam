@@ -23,7 +23,9 @@ class HelperFunctions {
       projectId = value.id;
     });
     final List<String> tasks = [];
-
+    final DocumentReference imageReference = FirebaseFirestore.instance
+        .collection('userImages')
+        .doc('stockImageReference');
     FirebaseFirestore.instance.collection("projects").doc(projectId).update({
       "projectId": projectId,
     });
@@ -50,6 +52,8 @@ class HelperFunctions {
       'time': Timestamp.now(),
       'userId': "spec_message_for_welcome",
       'userName': "Amalgam Team",
+      'isAdmin': false,
+      "imageReference": imageReference
     });
 
     for (int i = 0; i < list.length; i++) {

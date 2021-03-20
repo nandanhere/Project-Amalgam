@@ -11,6 +11,7 @@ import 'package:project_amalgam/screens/Settings_Page/settings_page.dart';
 
 import 'screens/Create_Project/finaliseProject.dart';
 import 'screens/Create_Project/selectMembersScreen.dart';
+import 'screens/User_Info_Screen/UserInfoScreen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,11 +45,11 @@ class MyApp extends StatelessWidget {
           }
           if (snapshot.hasData) {
             Timer(Duration(seconds: 2), () {
-              if (flag) {
-                flag = false;
-                return HomePage();
-              }
+              flag = true;
             });
+            if (flag) {
+              return HomePage();
+            }
           }
           return AuthScreen();
         },
@@ -59,7 +60,8 @@ class MyApp extends StatelessWidget {
         SelectMembersScreen.routeName: (ctx) => SelectMembersScreen(),
         FinaliseProjectScreen.routeName: (ctx) => FinaliseProjectScreen(),
         PublicProjectsScreen.routeName: (ctx) => PublicProjectsScreen(),
-        ChatScreen.routeName: (ctx) => ChatScreen()
+        ChatScreen.routeName: (ctx) => ChatScreen(),
+        UserInfoScreen.routeName: (ctx) => UserInfoScreen(),
       },
     );
     return FutureBuilder(
