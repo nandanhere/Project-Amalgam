@@ -23,7 +23,8 @@ class ChatBubble extends StatelessWidget {
         'imageUrl': 'none',
         'text': 'messageText',
         'userId': "none",
-        'isAdmin': false
+        'isAdmin': false,
+        'userName': 'Amalgam Team'
       },
       builder: (ctx, snap) {
         if (snap.data == null) {
@@ -31,15 +32,21 @@ class ChatBubble extends StatelessWidget {
             child: Icon(Icons.person_sharp),
           );
         }
-        String url = 'none';
-        if (!(snap.data as Map<String, dynamic>).containsKey('imageUrl'))
-          url = snap.data['imageUrl'];
+        if (snap.data['userName'] == 'Amalgam Team') {
+          print('object');
+          return CircleAvatar(backgroundImage: AssetImage('amalgam_logo.png'));
+        }
+        final url = snap.data['imageUrl'];
 
         cacheMap.putIfAbsent(userId, () => url);
+
         return url == "none"
-            ? CircleAvatar(
-                child: Icon(Icons.person_sharp),
-              )
+            ? (snap.data['userId'] == 'spec_message_for_welcome')
+                ? CircleAvatar(
+                    backgroundImage: AssetImage('assets/amalgam_logo.png'))
+                : CircleAvatar(
+                    child: Icon(Icons.person_sharp),
+                  )
             : CircleAvatar(
                 backgroundImage: CachedNetworkImageProvider(
                   url,

@@ -31,12 +31,25 @@ class UserInfoScreen extends StatelessWidget {
         builder: (ctx, snap) {
           return snap.data == null
               ? Center(child: CircularProgressIndicator())
-              : Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(snap.data['userName']),
-                    UserImageUpdater(userData: snap.data),
-                  ],
+              : Center(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        snap.data['userName'],
+                        style: TextStyle(fontSize: 30),
+                      ),
+                      UserImageUpdater(userData: snap.data),
+                      Text(
+                        snap.data['pointsEarnedInTotal'].toString(),
+                        style: TextStyle(fontSize: 30),
+                      ),
+                      Text(
+                        snap.data['pointsEarnedInTotal'].toString(),
+                        style: TextStyle(fontSize: 30),
+                      ),
+                    ],
+                  ),
                 );
         },
       ),
@@ -81,7 +94,7 @@ class _UserImageUpdaterState extends State<UserImageUpdater> {
     return Column(
       children: [
         CircleAvatar(
-          radius: 40,
+          radius: 60,
           backgroundImage: _pickedImage == null
               ? widget.userData == null
                   ? AssetImage("assets/amalgam_logo.png")
