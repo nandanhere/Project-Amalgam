@@ -3,6 +3,7 @@ import 'package:project_amalgam/Common_widgets/projectDetails.dart';
 import 'package:project_amalgam/screens/Chat_Page/chat_Screen.dart';
 import 'package:project_amalgam/screens/Join_Public_Screen/ProjectPreview.dart';
 
+import '../globals.dart';
 import 'SizeSpecifier.dart';
 // A class dealing with the creation the task display card
 
@@ -21,20 +22,33 @@ class CustomCard extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     return Container(
       decoration: BoxDecoration(
-        color: Color(0xFFBBE0A8),
+        color: isDark ? Color(0xffa8a5a1) : Color(0xFFBBE0A8),
         borderRadius: BorderRadius.all(Radius.circular(20)),
-        boxShadow: [
-          BoxShadow(
-            color: Color(0xFFD1F0C2).withOpacity(0.5),
-            offset: Offset(-3.0, -3.0),
-            blurRadius: 3.0,
-          ),
-          BoxShadow(
-            color: Color(0xFF697861).withOpacity(0.2),
-            offset: Offset(3.0, 3.0),
-            blurRadius: 3.0,
-          ),
-        ],
+        boxShadow: isDark
+            ? [
+                BoxShadow(
+                  color: Color(0xFFD1F0C2).withOpacity(0.1),
+                  offset: Offset(3.0, 3.0),
+                  blurRadius: 3.0,
+                ),
+                BoxShadow(
+                  color: Color(0xFF697861).withOpacity(0.3),
+                  offset: Offset(-3.0, -3.0),
+                  blurRadius: 3.0,
+                ),
+              ]
+            : [
+                BoxShadow(
+                  color: Color(0xFFD1F0C2).withOpacity(0.5),
+                  offset: Offset(-3.0, -3.0),
+                  blurRadius: 3.0,
+                ),
+                BoxShadow(
+                  color: Color(0xFF697861).withOpacity(0.2),
+                  offset: Offset(3.0, 3.0),
+                  blurRadius: 3.0,
+                ),
+              ],
       ),
       margin: EdgeInsets.all(8),
       height: height / 5 < 200 ? height / 5 : 200,

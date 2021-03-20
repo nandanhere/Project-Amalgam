@@ -6,6 +6,7 @@ import 'package:charts_flutter/src/text_element.dart' as chartsTextElement;
 // ignore: implementation_imports
 import 'package:charts_flutter/src/text_style.dart' as chartsTextStyle;
 
+import '../globals.dart';
 import 'EmployeePerformance.dart';
 
 // A dart file that consists of necessary components used in the making of the performance chart
@@ -17,6 +18,7 @@ List<charts.Series<EmployeePerformace, int>> createSampleData(
         colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
         domainFn: (EmployeePerformace emp, _) => emp.month,
         measureFn: (EmployeePerformace emp, _) => emp.points,
+        fillColorFn: (_, __) => charts.MaterialPalette.teal.shadeDefault,
         data: arr,
         labelAccessorFn: (EmployeePerformace emp, _) =>
             emp.month.toString() + ", " + emp.points.toString())
@@ -61,7 +63,7 @@ class CustomCircleSymbolRenderer extends charts.CircleSymbolRenderer {
     // Add text inside the bubble
 
     final textStyle = chartsTextStyle.TextStyle();
-    textStyle.color = charts.Color.black;
+    textStyle.color = isDark ? charts.Color.white : charts.Color.black;
     textStyle.fontSize = 16;
 
     final chartsTextElement.TextElement textElement =

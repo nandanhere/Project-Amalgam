@@ -43,26 +43,27 @@ class _HomePageState extends State<HomePage> {
       new EmployeePerformace(12, 155),
     ];
     final List<charts.Series> series = createSampleData(arr);
+    print(darkMode());
     return Scaffold(
-      backgroundColor: Color(0xFFE0E0E0),
+      backgroundColor: darkMode(),
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: FittedBox(
           child: Text(
             "Amalgam | Your company name here",
-            style: TextStyle(color: Colors.black87),
+            style: TextStyle(color: textColor()),
           ),
         ),
         actions: [
           IconButton(
-              icon: Icon(Icons.settings, color: Colors.black87),
+              icon: Icon(Icons.settings, color: textColor()),
               onPressed: () {
                 Navigator.pushNamed(context, SettingsPage.routeName);
               }),
           SizedBox(width: 10),
         ],
         centerTitle: false,
-        backgroundColor: Color(0xFFE0E0E0),
+        backgroundColor: darkMode(),
         elevation: 2,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
@@ -95,7 +96,7 @@ class _HomePageState extends State<HomePage> {
                   margin: const EdgeInsets.only(left: 5.0),
                   child: Text(
                     "Projects",
-                    style: TextStyle(fontSize: 24),
+                    style: TextStyle(fontSize: 24, color: textColor()),
                     textAlign: TextAlign.start,
                   ),
                 ),
@@ -103,18 +104,24 @@ class _HomePageState extends State<HomePage> {
                   padding: const EdgeInsets.only(right: 20.0),
                   child: Row(
                     children: [
-                      Icon(Icons.shuffle),
+                      Icon(
+                        Icons.shuffle,
+                        color: textColor(),
+                      ),
                       SizedBox(
                         width: 20,
                       ),
-                      Icon(Icons.point_of_sale),
+                      Icon(
+                        Icons.point_of_sale,
+                        color: textColor(),
+                      ),
                       SizedBox(
                         width: 20,
                       ),
                       IconButton(
                         iconSize: 32,
                         splashRadius: 25,
-                        icon: Icon(Icons.group_add, color: Colors.black87),
+                        icon: Icon(Icons.group_add, color: textColor()),
                         onPressed: () {
                           Navigator.pushNamed(
                               context, SelectMembersScreen.routeName);

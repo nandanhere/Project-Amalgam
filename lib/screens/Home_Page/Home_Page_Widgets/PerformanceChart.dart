@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:project_amalgam/Common_widgets/chart_funcs.dart';
+import 'package:project_amalgam/globals.dart';
 
 class PerformanceChart extends StatelessWidget {
   const PerformanceChart({
@@ -19,20 +20,33 @@ class PerformanceChart extends StatelessWidget {
       height: height / 3.5 < 250 ? height / 3.5 : 250,
       width: width / 1.5,
       decoration: BoxDecoration(
-          color: Color(0xFFE0E0E0),
+          color: darkMode(),
           // border: Border(),
-          boxShadow: [
-            BoxShadow(
-              color: Color(0xFFebebeb).withOpacity(0.5),
-              offset: Offset(-3.0, -3.0),
-              blurRadius: 3.0,
-            ),
-            BoxShadow(
-              color: Color(0xFF4A4A4A).withOpacity(0.1),
-              offset: Offset(3.0, 3.0),
-              blurRadius: 3.0,
-            ),
-          ],
+          boxShadow: isDark
+              ? [
+                  BoxShadow(
+                    color: Color(0xFFebebeb).withOpacity(0.1),
+                    offset: Offset(3.0, 3.0),
+                    blurRadius: 3.0,
+                  ),
+                  BoxShadow(
+                    color: Color(0xFF4A4A4A).withOpacity(0.3),
+                    offset: Offset(-3.0, -3.0),
+                    blurRadius: 3.0,
+                  ),
+                ]
+              : [
+                  BoxShadow(
+                    color: Color(0xFFebebeb).withOpacity(0.5),
+                    offset: Offset(-3.0, -3.0),
+                    blurRadius: 3.0,
+                  ),
+                  BoxShadow(
+                    color: Color(0xFF4A4A4A).withOpacity(0.1),
+                    offset: Offset(3.0, 3.0),
+                    blurRadius: 3.0,
+                  ),
+                ],
           borderRadius: BorderRadius.only(
               topRight: Radius.circular(20),
               topLeft: Radius.circular(20),
@@ -44,7 +58,7 @@ class PerformanceChart extends StatelessWidget {
             margin: EdgeInsets.only(left: 15, top: 15),
             child: Text(
               "Performance",
-              style: TextStyle(fontSize: 20),
+              style: TextStyle(fontSize: 20, color: textColor()),
             ),
             alignment: Alignment.centerLeft,
           ),
@@ -61,6 +75,7 @@ class PerformanceChart extends StatelessWidget {
                     charts.SelectionModelConfig(
                         changedListener: (charts.SelectionModel model) {
                       String str1, str2;
+
                       if (model.hasDatumSelection)
                         str1 = model.selectedSeries[0]
                             .domainFn(model.selectedDatum[0].index)

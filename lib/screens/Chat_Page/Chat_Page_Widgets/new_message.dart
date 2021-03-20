@@ -50,7 +50,7 @@ class _NewMessageState extends State<NewMessage> {
         Container(
           height: 50,
           decoration: BoxDecoration(
-              color: Color(0xFFEBEDEF),
+              color: isDark ? Color(0xFF6F737A) : Color(0xFFEBEDEF),
               // border: Border.all(width: 3),
               borderRadius: BorderRadius.circular(20)),
           margin: EdgeInsets.only(left: 10, right: 10),
@@ -71,6 +71,7 @@ class _NewMessageState extends State<NewMessage> {
                         FocusScope.of(context).requestFocus(_message);
                       }
                     },
+                    style: TextStyle(color: textColor()),
                     controller: _controller,
                     decoration: InputDecoration(
                         hintText: "Send message", border: InputBorder.none),

@@ -3,6 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:project_amalgam/Common_widgets/SizeSpecifier.dart';
 import 'package:project_amalgam/screens/Join_Public_Screen/PublicProjectsScreen.dart';
 
+import '../../../globals.dart';
+
 class OpenProjects extends StatelessWidget {
   const OpenProjects({
     Key key,
@@ -19,10 +21,12 @@ class OpenProjects extends StatelessWidget {
       height: height / 3.5 < 250 ? height / 3.5 : 250,
       width: width / 3.5 < 200 ? width / 3.5 + 20 : 200,
       decoration: BoxDecoration(
-          color: Color(0xFFCBDCF2),
+          color: isDark ? Color(0xffa2acba) : Color(0xFFCBDCF2),
           boxShadow: [
             BoxShadow(
-              color: Color(0xFFDCE8F7).withOpacity(0.5),
+              color: isDark
+                  ? Color(0xFFDCE8F7).withOpacity(0.1)
+                  : Color(0xFFDCE8F7).withOpacity(0.5),
               offset: Offset(-3.0, -3.0),
               blurRadius: 3.0,
             ),

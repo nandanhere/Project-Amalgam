@@ -3,6 +3,7 @@ import 'package:project_amalgam/Common_widgets/BoldText.dart';
 import 'package:project_amalgam/Common_widgets/CustomDivider.dart';
 import 'package:project_amalgam/screens/Home_Page/Home_Page.dart';
 
+import '../../globals.dart';
 import 'finalise_Project_Screen_Widgets/FinalList.dart';
 import 'finalise_Project_Screen_Widgets/finaliseProjectHelperFunctions.dart';
 import 'finalise_Project_Screen_Widgets/privateProjectSwitch.dart';
@@ -24,14 +25,14 @@ class FinaliseProjectScreen extends StatelessWidget {
     }
 
     return Scaffold(
-      backgroundColor: Color(0xFFE0E0E0),
+      backgroundColor: darkMode(),
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black87),
+        iconTheme: IconThemeData(color: textColor()),
         title: Text(
           "Create The project",
-          style: TextStyle(color: Colors.black87),
+          style: TextStyle(color: textColor()),
         ),
-        backgroundColor: Color(0xFFE0E0E0),
+        backgroundColor: darkMode(),
         elevation: 2,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
@@ -84,7 +85,7 @@ class FinaliseProjectScreen extends StatelessWidget {
                             },
                             textAlign: TextAlign.start,
                             decoration: InputDecoration(hintText: "Enter Name"),
-                            style: TextStyle(fontSize: 18),
+                            style: TextStyle(fontSize: 18, color: textColor()),
                           ),
                         ),
                         Container(
@@ -100,7 +101,7 @@ class FinaliseProjectScreen extends StatelessWidget {
                             textAlign: TextAlign.start,
                             decoration:
                                 InputDecoration(hintText: "Enter Description"),
-                            style: TextStyle(fontSize: 18),
+                            style: TextStyle(fontSize: 18, color: textColor()),
                           ),
                         ),
                         PrivateProjectSwitch(
@@ -113,7 +114,8 @@ class FinaliseProjectScreen extends StatelessWidget {
                   SizedBox(
                     height: 10,
                   ),
-                  Text("Add a project picture and a description for it"),
+                  Text("Add a project picture and a description for it",
+                      style: TextStyle(color: textColor())),
                   SizedBox(
                     height: 10,
                   ),
