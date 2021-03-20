@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:project_amalgam/Common_widgets/CustomCircularProgressIndicator.dart';
- import 'package:project_amalgam/screens/Chat_Page/ProjectInfoScreen.dart';
+import 'package:project_amalgam/screens/Chat_Page/ProjectInfoScreen.dart';
 import 'package:project_amalgam/screens/Shared_Button_Screen/SharedButtonScreen.dart';
- import 'package:project_amalgam/screens/Modal_Page/ModalPage.dart';
- import '../../globals.dart';
+import 'package:project_amalgam/screens/Modal_Page/ModalPage.dart';
+import '../../globals.dart';
 import 'chat_page_widgets/messages.dart';
 import 'chat_page_widgets/new_message.dart';
 
@@ -146,60 +146,6 @@ class _ChatScreenState extends State<ChatScreen> {
                   ],
                 ),
               ),
-              actions: [
-                if (snapshot.data['isAdmin'])
-                  IconButton(
-                    alignment: Alignment.centerRight,
-                    iconSize: 32,
-                    splashRadius: 25,
-                    icon: Icon(Icons.add_circle_outline, color: Colors.black87),
-                    onPressed: () {},
-                  ),
-                PopupMenuButton(
-                    onSelected: (value) {
-                      if (value == "Logout") {
-                      } else if (value == "SharedButton") {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SharedButtonScreen(
-                              projectId: projectId,
-                              projectTitle: projectName,
-                            ),
-                          ),
-                        );
-                      }
-                    },
-                    icon: Icon(Icons.more_vert),
-                    itemBuilder: (context) {
-                      return [
-                        PopupMenuItem(
-                          value: 'Logout',
-                          child: Container(
-                            child: Row(
-                              children: [
-                                Icon(Icons.exit_to_app),
-                                SizedBox(width: 10),
-                                Text("Logout")
-                              ],
-                            ),
-                          ),
-                        ),
-                        PopupMenuItem(
-                          value: 'SharedButton',
-                          child: Container(
-                            child: Row(
-                              children: [
-                                Icon(Icons.phone_in_talk),
-                                SizedBox(width: 10),
-                                Text("FreeSpeak")
-                              ],
-                            ),
-                          ),
-                        ),
-                      ];
-                    }),
-              ],
             ),
             body: Center(
               child: Container(
