@@ -4,6 +4,7 @@ import 'package:project_amalgam/Common_widgets/CustomDivider.dart';
 import 'package:project_amalgam/Common_widgets/EmployeePerformance.dart';
 import 'package:project_amalgam/Common_widgets/SizeSpecifier.dart';
 import 'package:project_amalgam/Common_widgets/chart_funcs.dart';
+import 'package:project_amalgam/Common_widgets/showProjects.dart';
 import 'package:project_amalgam/screens/Create_Project/selectMembersScreen.dart';
 import 'package:project_amalgam/screens/Settings_Page/settings_page.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
@@ -123,6 +124,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                 )
               ],
+            ),
+            ShowProjects(
+              showPublic: false,
             ),
           ],
         ),

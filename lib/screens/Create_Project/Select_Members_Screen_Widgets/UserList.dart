@@ -1,6 +1,6 @@
-import 'package:amalgam/Common_widgets/CustomCircularProgressIndicator.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:project_amalgam/Common_widgets/CustomCircularProgressIndicator.dart';
 
 import 'UserTile.dart';
 

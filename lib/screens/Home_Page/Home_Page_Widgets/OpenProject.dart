@@ -37,10 +37,14 @@ class OpenProjects extends StatelessWidget {
         child: InkWell(
           borderRadius: BorderRadius.all(Radius.circular(20)),
           onTap: () {},
-          child: Text(
-            "Join Any Open Project For Free  ",
-            style: GoogleFonts.bangers(fontSize: 20),
-            textAlign: TextAlign.right,
+          child: Container(
+            alignment: Alignment.bottomCenter,
+            padding: EdgeInsets.only(bottom: 10),
+            child: Text(
+              "Join Any Open Project For Free  ",
+              style: GoogleFonts.bangers(fontSize: 20),
+              textAlign: TextAlign.center,
+            ),
           ),
         ),
       ),

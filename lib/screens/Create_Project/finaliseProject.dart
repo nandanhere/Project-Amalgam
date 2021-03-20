@@ -1,19 +1,17 @@
-import 'package:amalgam/Common_widgets/BoldText.dart';
-import 'package:amalgam/Common_widgets/CustomDivider.dart';
-import 'package:amalgam/screens/Home_Page/HomePage.dart'; // u will add this after J pushes
 import 'package:flutter/material.dart';
+import 'package:project_amalgam/Common_widgets/BoldText.dart';
+import 'package:project_amalgam/Common_widgets/CustomDivider.dart';
+import 'package:project_amalgam/screens/Home_Page/Home_Page.dart';
 
 import 'finalise_Project_Screen_Widgets/FinalList.dart';
 import 'finalise_Project_Screen_Widgets/finaliseProjectHelperFunctions.dart';
 import 'finalise_Project_Screen_Widgets/privateProjectSwitch.dart';
 
-// N will do this so dw
 class FinaliseProjectScreen extends StatelessWidget {
   const FinaliseProjectScreen({Key key}) : super(key: key);
-  static const routeName = "/finaliseProject"; // remember to add in main.dart
+  static const routeName = "/finaliseProject";
   @override
   Widget build(BuildContext context) {
-    // double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     String _projectName = "hidden_test_projectName";
     String _projectDesc = "hidden_test_projectDesc";
@@ -46,12 +44,12 @@ class FinaliseProjectScreen extends StatelessWidget {
               icon: Icon(Icons.check, color: Colors.black87),
               onPressed: () {
                 HelperFunctions.finaliseProjectDetails(
-                    _projectDesc,
-                    _projectName,
-                    _isPrivate,
-                    args['list'],
-                    args['data'],
-                  );
+                  _projectDesc,
+                  _projectName,
+                  _isPrivate,
+                  args['list'],
+                  args['data'],
+                );
                 Navigator.pushNamedAndRemoveUntil(
                     context, HomePage.routeName, (route) => false);
               },
@@ -73,9 +71,6 @@ class FinaliseProjectScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      ProjectImagePicker(
-                        imagePickFn: _pickedImage,
-                      ),
                       Column(children: [
                         Container(
                           margin: const EdgeInsets.all(8.0),
