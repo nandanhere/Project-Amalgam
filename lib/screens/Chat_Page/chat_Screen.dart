@@ -96,7 +96,17 @@ class _ChatScreenState extends State<ChatScreen> {
                   ),
                 PopupMenuButton(
                     onSelected: (value) {
-                      if (value == "SharedButton") {}
+                      if (value == "SharedButton") {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SharedButtonScreen(
+                              projectId: projectId,
+                              projectTitle: projectName,
+                            ),
+                          ),
+                        );
+                      }
                     },
                     icon: Icon(Icons.more_vert),
                     itemBuilder: (context) {
