@@ -94,20 +94,6 @@ class ShowProjects extends StatelessWidget {
         return (width >= 720)
             ? dualProjectViewer(groups)
             : Column(children: groups);
-        // return Container(
-        //   child: Center(
-        //     child: ListView.builder(
-        //         reverse: true,
-        //         itemCount: chatDoc.length,
-        //         itemBuilder: (ctx, index) {
-        //           return Container(
-        //               margin: index == chatDoc.length - 1
-        //                   ? EdgeInsets.only(top: 20)
-        //                   : null,
-        //               child: Text(chatDoc[index]['projectName']));
-        //         }),
-        //   ),
-        // );
       },
     );
   }
