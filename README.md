@@ -26,6 +26,23 @@ Amalgam is a cross platform application developed for companies or organisations
 
 Note : The screenshots displayed in the above section are from Web, hence image hasnt been rendered. Rendering of image takes in more time to compile, hence didn't do it for now. Will update the screenshot with ones taken from mobile soon.
 
+* Ability to assign tasks and points to individuals or several people
+
+<img src="https://github.com/TheNova22/Project-Amalgam/blob/working/assets/screenshots/WhatsApp%20Image%202021-03-20%20at%2010.46.54%20PM.jpeg" width="250" height="400">
+
+* Ability to know the project details, statistics, details of the task assigned and the members of the team
+
+<img src="https://github.com/TheNova22/Project-Amalgam/blob/working/assets/screenshots/WhatsApp%20Image%202021-03-20%20at%2010.47.33%20PM.jpeg" width="250" height="400">
+
+* Ability to chat with users and also recieve automated messages when tasks are assigned
+
+<img src="https://github.com/TheNova22/Project-Amalgam/blob/working/assets/screenshots/WhatsApp%20Image%202021-03-20%20at%2010.46.20%20PM.jpeg" width="250" height="400">
+
+* Some screenshots of the page in mobile(Android) :
+
+<img src="https://github.com/TheNova22/Project-Amalgam/blob/working/assets/screenshots/WhatsApp%20Image%202021-03-20%20at%2010.45.11%20PM.jpeg" width="250" height="400">  <img src="https://github.com/TheNova22/Project-Amalgam/blob/working/assets/screenshots/WhatsApp%20Image%202021-03-20%20at%2010.43.41%20PM.jpeg" width="250" height="400">
+
+
 <sup> * </sup> as of now
 
 ## Features <sup>*</sup>
