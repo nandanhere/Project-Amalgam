@@ -4,6 +4,7 @@ import 'package:project_amalgam/Common_widgets/CustomDivider.dart';
 import 'package:project_amalgam/Common_widgets/EmployeePerformance.dart';
 import 'package:project_amalgam/Common_widgets/SizeSpecifier.dart';
 import 'package:project_amalgam/Common_widgets/chart_funcs.dart';
+import 'package:project_amalgam/screens/Create_Project/selectMembersScreen.dart';
 import 'package:project_amalgam/screens/Settings_Page/settings_page.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import '../../globals.dart';
@@ -23,6 +24,7 @@ class _HomePageState extends State<HomePage> {
     double width = MediaQuery.of(context).size.width;
     setGlobaluserId(FirebaseAuth.instance.currentUser.uid);
     print(width);
+    // this is all dummy data we need to intitalise with real data
     DeviceType type = widthdecider(width);
     final arr = [
       new EmployeePerformace(0, 0),
@@ -112,7 +114,10 @@ class _HomePageState extends State<HomePage> {
                         iconSize: 32,
                         splashRadius: 25,
                         icon: Icon(Icons.group_add, color: Colors.black87),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(
+                              context, SelectMembersScreen.routeName);
+                        },
                       ),
                     ],
                   ),

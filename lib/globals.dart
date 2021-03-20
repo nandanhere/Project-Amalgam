@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
+double width = 0.0;
+
 String userIdGlobal = "";
 String userNameGlobal = "";
 Future<void> setGlobaluserId(String uid) async {
@@ -10,4 +12,8 @@ Future<void> setGlobaluserId(String uid) async {
       .doc(userIdGlobal)
       .get();
   userNameGlobal = userFile.data()['userName'];
+}
+
+void setDeviceWidth(double value) {
+  width = value;
 }
