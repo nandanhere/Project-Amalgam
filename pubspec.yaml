@@ -42,7 +42,9 @@ dependencies:
   provider: ^4.3.2+2
   fluttertoast: ^7.1.8
   holding_gesture: ^0.0.3
- 
+  percent_indicator: ^2.1.9
+  dropdown_search: ^0.4.8
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter

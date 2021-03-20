@@ -8,10 +8,16 @@ import 'package:image_picker/image_picker.dart';
 
 import '../../globals.dart';
 
-class UserInfoScreen extends StatelessWidget {
+class UserInfoScreen extends StatefulWidget {
   static const routeName = "/UserInfoScreen";
 
   const UserInfoScreen({Key key}) : super(key: key);
+
+  @override
+  _UserInfoScreenState createState() => _UserInfoScreenState();
+}
+
+class _UserInfoScreenState extends State<UserInfoScreen> {
   Future<dynamic> function() async {
     final userData = await FirebaseFirestore.instance
         .collection('users')
@@ -41,13 +47,23 @@ class UserInfoScreen extends StatelessWidget {
                       ),
                       UserImageUpdater(userData: snap.data),
                       Text(
-                        snap.data['pointsEarnedInTotal'].toString(),
+                        "Points earned In total : " +
+                            snap.data['pointsEarnedInTotal'].toString(),
                         style: TextStyle(fontSize: 30),
                       ),
                       Text(
-                        snap.data['pointsEarnedInTotal'].toString(),
+                        "Balance " + snap.data['balance'].toString(),
                         style: TextStyle(fontSize: 30),
                       ),
+                      TextButton(
+                          onPressed: () {
+                            FirebaseFirestore.instance
+                                .collection('users')
+                                .doc(userIdGlobal)
+                                .update({'balance': 0});
+                            setState(() {});
+                          },
+                          child: Text("Redeem Points")),
                     ],
                   ),
                 );

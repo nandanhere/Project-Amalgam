@@ -33,8 +33,8 @@ class ChatBubble extends StatelessWidget {
           );
         }
         if (snap.data['userName'] == 'Amalgam Team') {
-          print('object');
-          return CircleAvatar(backgroundImage: AssetImage('amalgam_logo.png'));
+          return CircleAvatar(
+              backgroundImage: AssetImage('assets/amalgam_logo.png'));
         }
         final url = snap.data['imageUrl'];
 

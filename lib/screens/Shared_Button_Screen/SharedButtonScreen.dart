@@ -1,10 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:holding_gesture/holding_gesture.dart';
 
 import '../../globals.dart';
 
-// N will first commit then J will add the UI
 class SharedButtonScreen extends StatelessWidget {
   final String projectId;
   final String projectTitle;
@@ -47,7 +45,9 @@ class SharedButtonScreen extends StatelessWidget {
       ),
       body: StreamBuilder(
           initialData: {
-            'buttonPresser': {'userId': 'none'}
+            'buttonPresser': {
+              'userId': 'none',
+            }
           },
           stream: FirebaseFirestore.instance
               .collection('projects')
