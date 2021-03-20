@@ -37,7 +37,6 @@ class ChatBubble extends StatelessWidget {
               backgroundImage: AssetImage('assets/amalgam_logo.png'));
         }
         final url = snap.data['imageUrl'];
-
         cacheMap.putIfAbsent(userId, () => url);
 
         return url == "none"
