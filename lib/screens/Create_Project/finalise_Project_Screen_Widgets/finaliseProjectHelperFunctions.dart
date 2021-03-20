@@ -22,8 +22,6 @@ class HelperFunctions {
     }).then((value) {
       projectId = value.id;
     });
-
-    //TODO : make sure that this is changed when a person is assigned a task
     final List<String> tasks = [];
 
     FirebaseFirestore.instance.collection("projects").doc(projectId).update({

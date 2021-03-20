@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_amalgam/Common_widgets/projectDetails.dart';
-
+import 'package:project_amalgam/screens/Chat_Page/chat_Screen.dart';
 import 'SizeSpecifier.dart';
-// A class dealing with the creation the task display card
 
 class CustomCard extends StatelessWidget {
   final bool isOpen;
@@ -119,7 +118,6 @@ class CustomCard extends StatelessWidget {
               ),
             ),
           ),
-          //TODO consider removing this since it does not serve too much purpose
           if (height / 5 < 135)
             Padding(
               padding: const EdgeInsets.only(right: 10.0, top: 10),
@@ -142,8 +140,17 @@ class CustomCard extends StatelessWidget {
             child: Material(
               color: Colors.transparent,
               child: InkWell(
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                  onTap: () {}),
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+                onTap: isOpen
+                    ? () {}
+                    : () {
+                        Navigator.pushNamed(context, ChatScreen.routeName,
+                            arguments: {
+                              'projectId': details.id,
+                              'projectName': details.title
+                            });
+                      },
+              ),
             ),
           )
         ],
