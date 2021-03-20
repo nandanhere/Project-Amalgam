@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-// N will do this
 class PrivateProjectSwitch extends StatefulWidget {
   final Function(bool value) changeBool;
   final double width;

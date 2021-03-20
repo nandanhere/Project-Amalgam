@@ -1,9 +1,6 @@
-// this entire screen + Provider  : N
-
 import 'package:flutter/material.dart';
 import 'package:project_amalgam/Providers/UsersSelectedProvider.dart';
 import 'package:provider/provider.dart';
-
 import 'Select_Members_Screen_Widgets/UserList.dart';
 import 'finaliseProject.dart';
 
