@@ -14,6 +14,14 @@ List<Color> colorList = [
   Colors.indigo,
   Colors.orange
 ];
+List<String> status = [
+  "assigned",
+  "in progress",
+  "backlog",
+  "review",
+  "testing",
+  "done"
+];
 String userIdGlobal = "";
 String userNameGlobal = "";
 Future<void> setGlobaluserId(String uid) async {

@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:holding_gesture/holding_gesture.dart';
+ 
+ 
+ import 'package:holding_gesture/holding_gesture.dart';
 import 'package:project_amalgam/globals.dart';
 
-class SharedButtonScreen extends StatelessWidget {
+ class SharedButtonScreen extends StatelessWidget {
   final String projectId;
   final String projectTitle;
   const SharedButtonScreen(
@@ -45,7 +47,9 @@ class SharedButtonScreen extends StatelessWidget {
       ),
       body: StreamBuilder(
           initialData: {
-            'buttonPresser': {'userId': 'none'}
+            'buttonPresser': {
+              'userId': 'none',
+            }
           },
           stream: FirebaseFirestore.instance
               .collection('projects')

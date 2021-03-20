@@ -59,6 +59,7 @@ class _AuthScreenState extends State<AuthScreen> {
           'imageUrl': imageUrl,
           'userId': authResult.user.uid,
           'pointsEarnedInTotal': 0,
+          'balance': 0,
         });
       }
     } on PlatformException catch (error) {
