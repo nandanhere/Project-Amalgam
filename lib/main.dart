@@ -1,8 +1,11 @@
+import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:project_amalgam/screens/Auth_Page/auth_page.dart';
 import 'package:project_amalgam/screens/Home_Page/Home_Page.dart';
+import 'package:project_amalgam/screens/Join_Public_Screen/PublicProjectsScreen.dart';
 import 'package:project_amalgam/screens/Settings_Page/settings_page.dart';
 
 import 'screens/Create_Project/finaliseProject.dart';
@@ -38,6 +41,7 @@ class MyApp extends StatelessWidget {
             return CircularProgressIndicator();
           }
           if (snapshot.hasData) {
+            Timer(Duration(seconds: 5), () {});
             return HomePage();
           }
           return AuthScreen();
@@ -48,6 +52,7 @@ class MyApp extends StatelessWidget {
         SettingsPage.routeName: (ctx) => SettingsPage(),
         SelectMembersScreen.routeName: (ctx) => SelectMembersScreen(),
         FinaliseProjectScreen.routeName: (ctx) => FinaliseProjectScreen(),
+        PublicProjectsScreen.routeName: (ctx) => PublicProjectsScreen(),
       },
     );
     return FutureBuilder(

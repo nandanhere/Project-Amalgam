@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:project_amalgam/Common_widgets/projectDetails.dart';
-import 'package:project_amalgam/screens/Chat_Page/chat_Screen.dart';
+import 'package:project_amalgam/screens/Join_Public_Screen/ProjectPreview.dart';
+
 import 'SizeSpecifier.dart';
+// A class dealing with the creation the task display card
 
 class CustomCard extends StatelessWidget {
   final bool isOpen;
@@ -142,14 +144,20 @@ class CustomCard extends StatelessWidget {
               child: InkWell(
                 borderRadius: BorderRadius.all(Radius.circular(20)),
                 onTap: isOpen
-                    ? () {}
-                    : () {
-                        Navigator.pushNamed(context, ChatScreen.routeName,
-                            arguments: {
-                              'projectId': details.id,
-                              'projectName': details.title
-                            });
-                      },
+                    ? () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProjectPreview(
+                              projectId: details.id,
+                              projectName: details.title,
+                              projectDesc: details.description,
+                              imageUrl: details.imageUrl,
+                            ),
+                          ),
+                        );
+                      }
+                    : () {},
               ),
             ),
           )

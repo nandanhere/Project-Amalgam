@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_amalgam/Common_widgets/SizeSpecifier.dart';
+import 'package:project_amalgam/screens/Join_Public_Screen/PublicProjectsScreen.dart';
 
 class OpenProjects extends StatelessWidget {
   const OpenProjects({
@@ -36,7 +37,9 @@ class OpenProjects extends StatelessWidget {
         color: Colors.transparent,
         child: InkWell(
           borderRadius: BorderRadius.all(Radius.circular(20)),
-          onTap: () {},
+          onTap: () {
+            Navigator.pushNamed(context, PublicProjectsScreen.routeName);
+          },
           child: Container(
             alignment: Alignment.bottomCenter,
             padding: EdgeInsets.only(bottom: 10),
