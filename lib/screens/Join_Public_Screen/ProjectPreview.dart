@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:project_amalgam/screens/Home_Page/Home_Page.dart';
 
 import '../../globals.dart';
 
@@ -60,6 +61,8 @@ class ProjectPreview extends StatelessWidget {
             TextButton(
                 onPressed: () {
                   joinGroup();
+                  Navigator.popUntil(
+                      context, ModalRoute.withName(HomePage.routeName));
                 },
                 child: Text("Join project"))
           ],

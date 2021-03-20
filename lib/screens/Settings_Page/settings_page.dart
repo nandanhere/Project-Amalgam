@@ -42,8 +42,9 @@ class SettingsPage extends StatelessWidget {
             SettingsButton(
               title: "Log Out",
               onTap: () {
-                FirebaseAuth.instance.signOut();
-                Navigator.of(context).pop();
+                FirebaseAuth.instance.signOut().then((value) {
+                  Navigator.of(context).pop();
+                });
               },
               leading: Icon(Icons.logout, color: Colors.red),
             ),

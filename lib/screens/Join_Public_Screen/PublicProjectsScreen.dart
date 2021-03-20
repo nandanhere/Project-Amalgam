@@ -24,8 +24,10 @@ class PublicProjectsScreen extends StatelessWidget {
                 bottomLeft: Radius.circular(20),
                 bottomRight: Radius.circular(20))),
       ),
-      body: ShowProjects(
-        showPublic: true,
+      body: SingleChildScrollView(
+        child: ShowProjects(
+          showPublic: true,
+        ),
       ),
     );
   }

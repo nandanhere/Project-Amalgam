@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:project_amalgam/Common_widgets/CustomCircularProgressIndicator.dart';
+import 'package:project_amalgam/globals.dart';
 
-import '../../../globals.dart';
 import 'chat_bubble.dart';
 
 class Messages extends StatelessWidget {
