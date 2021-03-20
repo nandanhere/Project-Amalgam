@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_amalgam/Common_widgets/projectDetails.dart';
+import 'package:project_amalgam/screens/Chat_Page/chat_Screen.dart';
 import 'package:project_amalgam/screens/Join_Public_Screen/ProjectPreview.dart';
 
 import 'SizeSpecifier.dart';
@@ -157,7 +158,13 @@ class CustomCard extends StatelessWidget {
                           ),
                         );
                       }
-                    : () {},
+                    : () {
+                        Navigator.pushNamed(context, ChatScreen.routeName,
+                            arguments: {
+                              'projectId': details.id,
+                              'projectName': details.title
+                            });
+                      },
               ),
             ),
           )

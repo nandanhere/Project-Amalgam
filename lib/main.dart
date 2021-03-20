@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:project_amalgam/screens/Auth_Page/auth_page.dart';
+import 'package:project_amalgam/screens/Chat_Page/chat_Screen.dart';
 import 'package:project_amalgam/screens/Home_Page/Home_Page.dart';
 import 'package:project_amalgam/screens/Join_Public_Screen/PublicProjectsScreen.dart';
 import 'package:project_amalgam/screens/Settings_Page/settings_page.dart';
@@ -18,6 +19,7 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
+  bool flag = false;
   @override
   Widget build(BuildContext context) {
     final app = MaterialApp(
@@ -41,8 +43,12 @@ class MyApp extends StatelessWidget {
             return CircularProgressIndicator();
           }
           if (snapshot.hasData) {
-            Timer(Duration(seconds: 5), () {});
-            return HomePage();
+            Timer(Duration(seconds: 2), () {
+              if (flag) {
+                flag = false;
+                return HomePage();
+              }
+            });
           }
           return AuthScreen();
         },
@@ -53,6 +59,7 @@ class MyApp extends StatelessWidget {
         SelectMembersScreen.routeName: (ctx) => SelectMembersScreen(),
         FinaliseProjectScreen.routeName: (ctx) => FinaliseProjectScreen(),
         PublicProjectsScreen.routeName: (ctx) => PublicProjectsScreen(),
+        ChatScreen.routeName: (ctx) => ChatScreen()
       },
     );
     return FutureBuilder(
