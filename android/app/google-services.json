@@ -1,40 +1,40 @@
 {
   "project_info": {
-    "project_number": "657333149100",
-    "project_id": "amalgam-9de88",
-    "storage_bucket": "amalgam-9de88.appspot.com"
+    "project_number": "743971208333",
+    "project_id": "amalgam-bb357",
+    "storage_bucket": "amalgam-bb357.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:657333149100:android:b7d7cf0f8f6407e1feee09",
+        "mobilesdk_app_id": "1:743971208333:android:cc89501c691a10df1436c4",
         "android_client_info": {
-          "package_name": "com.cantin.projectAmalgam"
+          "package_name": "com.cantin.amalgam"
         }
       },
       "oauth_client": [
         {
-          "client_id": "657333149100-8sc94ei06p7an3sen1iso1c8k464oqp1.apps.googleusercontent.com",
+          "client_id": "743971208333-hec7mhc8d7c33hg4aqj8t3is73ch0khl.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDIhbgM0uyK0_2kMeAMvjgjJBoDGNRC5iU"
+          "current_key": "AIzaSyDtqyhUYH6_tb9ZMv_IJguB6eXkflnEIAw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "657333149100-8sc94ei06p7an3sen1iso1c8k464oqp1.apps.googleusercontent.com",
+              "client_id": "743971208333-hec7mhc8d7c33hg4aqj8t3is73ch0khl.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "657333149100-3f2b7o4nq7tp2eh1mhchle3dvq3o4pki.apps.googleusercontent.com",
+              "client_id": "743971208333-brgsqgkpn3ae13sjj4edca65ai19ph8q.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.cantin.projectAmalgam"
+                "bundle_id": "com.cantin.amalgam"
               }
             }
           ]
