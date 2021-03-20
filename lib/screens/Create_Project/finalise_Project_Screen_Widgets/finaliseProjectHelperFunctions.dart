@@ -11,7 +11,6 @@ class HelperFunctions {
     List<String> list,
     Map<String, DocumentSnapshot> data,
   ) async {
-    String imageUrl;
     String projectId;
     await FirebaseFirestore.instance.collection("projects").add({
       "projectDesc": projectDesc,

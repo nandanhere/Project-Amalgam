@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>657333149100-3f2b7o4nq7tp2eh1mhchle3dvq3o4pki.apps.googleusercontent.com</string>
+	<string>743971208333-brgsqgkpn3ae13sjj4edca65ai19ph8q.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.657333149100-3f2b7o4nq7tp2eh1mhchle3dvq3o4pki</string>
+	<string>com.googleusercontent.apps.743971208333-brgsqgkpn3ae13sjj4edca65ai19ph8q</string>
 	<key>API_KEY</key>
-	<string>AIzaSyA49OO7xlYpLwJuQ8i05jd6AiIeqOzwp9g</string>
+	<string>AIzaSyCTtKwNTJZrqGSHACQb4FsfLl22yQh7IVE</string>
 	<key>GCM_SENDER_ID</key>
-	<string>657333149100</string>
+	<string>743971208333</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.cantin.projectAmalgam</string>
+	<string>com.cantin.amalgam</string>
 	<key>PROJECT_ID</key>
-	<string>amalgam-9de88</string>
+	<string>amalgam-bb357</string>
 	<key>STORAGE_BUCKET</key>
-	<string>amalgam-9de88.appspot.com</string>
+	<string>amalgam-bb357.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:657333149100:ios:60df6d0939679408feee09</string>
+	<string>1:743971208333:ios:5b2751ef4b9e4d1c1436c4</string>
 </dict>
 </plist>
