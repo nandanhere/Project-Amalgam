@@ -1,4 +1,4 @@
-package com.example.project_amalgam
+package com.cantin.amalgam
 
 import io.flutter.embedding.android.FlutterActivity
 
