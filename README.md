@@ -6,6 +6,11 @@ Amalgam is a cross platform application developed for companies or organisations
 ## Status of the project <sup>*</sup>
 * Added the authentication screen UI
 * Added the custom progress indicator
+* A settings menu UI
+* Successfully implemented authentication in Firebase
+* Made the Home Screen UI
+* Added the ability to create projects/groups
+* Ability to search through members while adding them to a project
 
 <sup> * </sup> as of now
 ## Features <sup>*</sup>
