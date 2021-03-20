@@ -9,10 +9,9 @@ import 'finalise_Project_Screen_Widgets/privateProjectSwitch.dart';
 
 class FinaliseProjectScreen extends StatelessWidget {
   const FinaliseProjectScreen({Key key}) : super(key: key);
-  static const routeName = "/finaliseProject"; // remember to add in main.dart
+  static const routeName = "/finaliseProject";
   @override
   Widget build(BuildContext context) {
-    // double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     String _projectName = "hidden_test_projectName";
     String _projectDesc = "hidden_test_projectDesc";
