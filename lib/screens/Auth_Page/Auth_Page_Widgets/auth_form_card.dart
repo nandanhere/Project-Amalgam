@@ -1,8 +1,13 @@
-import 'package:flutter/material.dart';
+import 'dart:io';
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:project_amalgam/Common_widgets/pickers/imagePicker.dart';
+
+// Imagefile is added with the help of file class.
 class AuthForm extends StatefulWidget {
   final void Function(String email, String password, String userName,
-      String role, bool isLogin, BuildContext ctx) submitData;
+      String role, bool isLogin, BuildContext ctx, File imageFile) submitData;
   final bool isLoading;
   const AuthForm({Key key, this.submitData, this.isLoading}) : super(key: key);
 
@@ -17,6 +22,27 @@ class _AuthFormState extends State<AuthForm> {
   String _userName = "";
   String _userPassword = "";
   String _userRole = "";
+  File _userImageFile;
+  void _pickedImage(File image) {
+    _userImageFile = image;
+  }
+
+  Future<void> _passWordReset(String email) async {
+    await FirebaseAuth.instance
+        .sendPasswordResetEmail(email: email); // N full this one
+  }
+
+  void _trySubmit() {
+    final isValid = _formKey.currentState.validate();
+
+    if ((isValid && !_isLogin) || (_isLogin && isValid)) {
+      FocusScope.of(context).unfocus();
+      _formKey.currentState.save();
+
+      widget.submitData(_userEmail.trim(), _userPassword, _userName.trim(),
+          _userRole.trim(), _isLogin, context, _userImageFile);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +64,7 @@ class _AuthFormState extends State<AuthForm> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
+                  if (!_isLogin) UserImagePicker(imagePickFn: _pickedImage),
                   TextFormField(
                     controller: _email,
                     key: ValueKey("Email"),
@@ -109,7 +136,9 @@ class _AuthFormState extends State<AuthForm> {
                     onSaved: (value) {
                       _userPassword = value;
                     },
-                    onFieldSubmitted: (str) {},
+                    onFieldSubmitted: (str) {
+                      _trySubmit();
+                    },
                   ),
                   (_isLogin == true)
                       ? Row(
@@ -127,7 +156,18 @@ class _AuthFormState extends State<AuthForm> {
                                       "Enter your email ID to reset your password",
                                     ),
                                   ));
-                                } else {}
+                                } else {
+                                  // this function will allow the user to reset their password
+                                  _passWordReset(_userEmail).then((value) {
+                                    ScaffoldMessenger.of(context)
+                                        .showSnackBar(SnackBar(
+                                      backgroundColor: Colors.green,
+                                      content: Text(
+                                        "Check your email to reset the password",
+                                      ),
+                                    ));
+                                  });
+                                }
                               },
                               child: Text("Forgot Password?",
                                   style: TextStyle(

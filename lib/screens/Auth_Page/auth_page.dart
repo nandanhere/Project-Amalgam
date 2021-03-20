@@ -1,5 +1,10 @@
+import 'dart:io';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'Auth_Page_Widgets/auth_form_card.dart';
 
@@ -12,6 +17,75 @@ class AuthScreen extends StatefulWidget {
 
 class _AuthScreenState extends State<AuthScreen> {
   var _isLoading = false;
+
+  final auth = FirebaseAuth.instance; // N
+
+  void _submitAuthForm(String email, String password, String userName,
+      String role, bool isLogin, BuildContext ctx, File imageFile) async {
+    UserCredential authResult;
+    try {
+      setState(() {
+        _isLoading = true;
+      });
+      if (isLogin) {
+        authResult = await auth.signInWithEmailAndPassword(
+            email: email, password: password);
+      } else {
+        authResult = await auth.createUserWithEmailAndPassword(
+            email: email, password: password);
+        String imageUrl = 'none';
+// here i have referenced stockimageReference which is a stock image that will be displayed if the person does not have an image.
+        final reference = FirebaseStorage.instance
+            .ref()
+            .child('userImages')
+            .child(imageFile == null
+                ? "stockImageReference.jpg"
+                : '${authResult.user.uid}.jpg');
+        // this returns a storage reference in firestore
+        if (imageFile != null) {
+          await reference.putFile(
+              imageFile); // this code had .onComplete before. but in newer version of firebaseStorage it is no longer needed.
+        }
+        imageUrl = await reference.getDownloadURL();
+
+// when imageUrl is 'none' just use Person_outlined icon
+        FirebaseFirestore.instance
+            .collection('users')
+            .doc(authResult.user.uid)
+            .set({
+          'userName': userName,
+          'email': email,
+          'role': role,
+          'imageUrl': imageUrl,
+          'userId': authResult.user.uid,
+          'pointsEarnedInTotal': 0,
+        });
+      }
+    } on PlatformException catch (error) {
+      setState(() {
+        _isLoading = false;
+      });
+      var message = "Check your credentials please!";
+      if (error.message != null) {
+        message = error.message;
+      }
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(message),
+        ),
+      );
+    } on FirebaseAuthException catch (error) {
+      setState(() {
+        _isLoading = false;
+      });
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(error.message),
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     double h = MediaQuery.of(context).size.height;
@@ -74,7 +148,10 @@ class _AuthScreenState extends State<AuthScreen> {
                             ),
                           ],
                         ),
-                        AuthForm(isLoading: _isLoading),
+                        AuthForm(
+                          isLoading: _isLoading,
+                          submitData: _submitAuthForm,
+                        ),
                       ],
                     )
                   ]),
