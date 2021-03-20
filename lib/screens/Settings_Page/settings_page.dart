@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'Settings_Page_widgets/settings_button.dart';
@@ -40,7 +41,9 @@ class SettingsPage extends StatelessWidget {
             ),
             SettingsButton(
               title: "Log Out",
-              onTap: () {},
+              onTap: () {
+                FirebaseAuth.instance.signOut();
+              },
               leading: Icon(Icons.logout, color: Colors.red),
             ),
             SettingsTitle(title: "Preferences"),

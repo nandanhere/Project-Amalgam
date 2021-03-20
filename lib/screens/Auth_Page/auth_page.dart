@@ -47,9 +47,8 @@ class _AuthScreenState extends State<AuthScreen> {
               imageFile); // this code had .onComplete before. but in newer version of firebaseStorage it is no longer needed.
         }
         imageUrl = await reference.getDownloadURL();
-
 // when imageUrl is 'none' just use Person_outlined icon
-        FirebaseFirestore.instance
+        await FirebaseFirestore.instance
             .collection('users')
             .doc(authResult.user.uid)
             .set({
