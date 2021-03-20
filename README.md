@@ -54,6 +54,11 @@ Note : The screenshots displayed in the above section are from Web, hence image 
 * Ability to create a team, chat with teammates, assign work, take in work, submit work and gain ponts.
 * Find open projects in your workspace to join and contribute/share your ideas
 
+## Downloding Or Using Amalgam
+* A .apk file is present above which can be dowloaded and run on any Android device.
+* To run on ios device, download the repository, set up the XCode details and then use ```flutter run``` on any connected iOS or iPadOS or Simulator
+* To run on web i.e. Chrome, make sure that you are on the stable build of Flutter 2.0, then use ```flutter run -d chrome --web-renderer html```. Using ```flutter run``` will also work, but do note that the network images won't be rendered.
+
 <sup> * </sup> Present/being made/will be added
 ## Built Using
 * Flutter
