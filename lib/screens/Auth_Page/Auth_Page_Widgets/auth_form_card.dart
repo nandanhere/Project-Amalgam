@@ -181,7 +181,9 @@ class _AuthFormState extends State<AuthForm> {
                     height: 10,
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      _trySubmit();
+                    },
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all<Color>(
                           Theme.of(context).primaryColor),
