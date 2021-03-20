@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
             return CircularProgressIndicator();
           }
           if (snapshot.hasData) {
-            Timer(Duration(seconds: 2), () {
+            Timer(Duration(seconds: 1), () {
               flag = true;
             });
             if (flag) {
@@ -62,6 +62,7 @@ class MyApp extends StatelessWidget {
         PublicProjectsScreen.routeName: (ctx) => PublicProjectsScreen(),
         ChatScreen.routeName: (ctx) => ChatScreen(),
         UserInfoScreen.routeName: (ctx) => UserInfoScreen(),
+        AuthScreen.routeName: (ctx) => AuthScreen(),
       },
     );
     return FutureBuilder(

@@ -9,6 +9,7 @@ import 'package:flutter/services.dart';
 import 'Auth_Page_Widgets/auth_form_card.dart';
 
 class AuthScreen extends StatefulWidget {
+  static const String routeName = '/authscreen';
   AuthScreen({Key key}) : super(key: key);
 
   @override

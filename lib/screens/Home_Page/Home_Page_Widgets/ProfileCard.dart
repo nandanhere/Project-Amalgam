@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_amalgam/Common_widgets/SizeSpecifier.dart';
+import 'package:project_amalgam/screens/User_Info_Screen/UserInfoScreen.dart';
 
 import '../../../globals.dart';
 
@@ -79,7 +80,7 @@ class ProfileCard extends StatelessWidget {
               topLeft: Radius.circular(100),
               bottomLeft: Radius.circular(20),
               bottomRight: Radius.circular(20)),
-          onTap: () {},
+          onTap: () => Navigator.pushNamed(context, UserInfoScreen.routeName),
           child: Stack(
             children: [
               Align(
