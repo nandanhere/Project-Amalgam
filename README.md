@@ -58,6 +58,15 @@ Note : The screenshots displayed in the above section are from Web, hence image 
 * A .apk file is present above which can be dowloaded and run on any Android device.
 * To run on ios device, download the repository, set up the XCode details and then use ```flutter run``` on any connected iOS or iPadOS or Simulator
 * To run on web i.e. Chrome, make sure that you are on the stable build of Flutter 2.0, then use ```flutter run -d chrome --web-renderer html```. Using ```flutter run``` will also work, but do note that the network images won't be rendered.
+* A few dummy emails and passwords are given here for your use:
+
+Email : pam@mail.com                 
+Password : password
+
+
+Email : jim@mail.com           
+Password : password
+
 
 <sup> * </sup> Present/being made/will be added
 ## Built Using
